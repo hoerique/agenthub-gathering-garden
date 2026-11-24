@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application architecture
+- Use TanStack file routes and the root AppLayout for all modules; the existing framework owns navigation and SSR.
+- Keep mock entities in typed data files and mutate them through a shared in-memory Zustand store; this frontend stage must not imply live connections or persist credentials.
+- Keep backend communication behind services/api.ts without implementing remote endpoints; adapters can be replaced when the Python service is available.
+- Use semantic CSS tokens and shared page controls across modules; domain-specific workspaces remain separate components.
